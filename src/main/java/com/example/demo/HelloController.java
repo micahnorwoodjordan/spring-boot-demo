@@ -21,8 +21,13 @@ public class HelloController {
 	}
 
 	@GetMapping("/greeting")
-	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
-		model.addAttribute("name", name);
+	public String greeting(
+		@RequestParam(name = "fname", required = false, defaultValue = "first name") String fname,
+		@RequestParam(name = "lname", required = false, defaultValue = "last name") String lname,
+		Model model
+	) {
+		model.addAttribute("fname", fname);
+		model.addAttribute("lname", lname);
 		return "greeting";
 	}
 
