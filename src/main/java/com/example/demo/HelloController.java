@@ -16,19 +16,13 @@ import org.springframework.stereotype.Controller;
 public class HelloController {
 
 	@GetMapping("/")
-	public String index() {
-		return "Greetings from Spring Boot!";
-	}
-
-	@GetMapping("/greeting")
-	public String greeting(
+	public String index(
 		@RequestParam(name = "fname", required = false, defaultValue = "first name") String fname,
 		@RequestParam(name = "lname", required = false, defaultValue = "last name") String lname,
 		Model model
 	) {
 		model.addAttribute("fname", fname);
 		model.addAttribute("lname", lname);
-		return "greeting";
+		return "index";
 	}
-
 }
